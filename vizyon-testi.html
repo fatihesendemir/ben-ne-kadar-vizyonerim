@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben Ne Kadar Vizyonerim? — Girişimcilik Ön Eleme Testi</title>
+<meta property="og:title" content="Ben Ne Kadar Vizyonerim?">
+<meta property="og:description" content="15 soruluk bu test, sizi sisteme değil kendinize ayna tutuyor. Hazır mısınız?">
+<meta name="theme-color" content="#0a0f16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A227;
+  --gold-light: #F0C844;
+  --gold-dim: rgba(201,162,39,0.15);
+  --gold-border: rgba(201,162,39,0.3);
+  --dark: #0a0f16;
+  --dark2: #111820;
+  --dark3: #1a2332;
+  --text: #f0ece4;
+  --text-muted: rgba(240,236,228,0.55);
+  --text-dim: rgba(240,236,228,0.3);
+  --border: rgba(240,236,228,0.08);
+  --border-mid: rgba(240,236,228,0.14);
+  --green: #1D9E75;
+  --green-dim: rgba(29,158,117,0.15);
+  --red: #C0392B;
+  --red-dim: rgba(192,57,43,0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 72px 0 56px;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 0.5px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 8vw, 68px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3.5vw, 24px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  line-height: 1.4;
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.hm-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.hm-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--gold);
+}
+.hm-lbl {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-divider {
+  width: 100%;
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent, var(--border-mid), transparent);
+  margin: 48px 0 0;
+}
+
+/* ── PROGRESS ── */
+.prog-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding: 14px 20px;
+  background: var(--dark2);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+}
+.prog-track {
+  flex: 1;
+  height: 3px;
+  background: var(--border-mid);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.prog-txt {
+  font-size: 12px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  font-weight: 300;
+}
+
+/* ── QUESTION CARD ── */
+.qcard {
+  background: var(--dark2);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 20px;
+  padding: 36px;
+  margin-bottom: 16px;
+  animation: fadeUp 0.3s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.qcard-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.q-num {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.q-badge {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.b-zaman   { background: rgba(201,162,39,.12); color: #C9A227; border: 0.5px solid rgba(201,162,39,.25); }
+.b-para    { background: rgba(29,158,117,.12); color: #1D9E75; border: 0.5px solid rgba(29,158,117,.25); }
+.b-psiko   { background: rgba(140,100,220,.12); color: #9b72d8; border: 0.5px solid rgba(140,100,220,.25); }
+.b-cesaret { background: rgba(220,100,50,.12); color: #d47040; border: 0.5px solid rgba(220,100,50,.25); }
+.b-sermaye { background: rgba(60,140,220,.12); color: #5aabdf; border: 0.5px solid rgba(60,140,220,.25); }
+
+.q-txt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 4vw, 26px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.q-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  padding-left: 14px;
+  border-left: 1.5px solid var(--gold-border);
+  font-style: italic;
+  font-weight: 300;
+}
+.q-nosub { margin-bottom: 28px; }
+
+.opts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  background: transparent;
+  border: 0.5px solid var(--border-mid);
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all 0.2s ease;
+  color: var(--text);
+}
+.opt:hover {
+  background: rgba(201,162,39,0.04);
+  border-color: var(--gold-border);
+}
+.opt.sel {
+  background: var(--gold-dim);
+  border-color: rgba(201,162,39,0.5);
+}
+.opt.sel .opt-letter {
+  background: var(--gold);
+  color: var(--dark);
+  border-color: var(--gold);
+  font-weight: 500;
+}
+
+.opt-letter {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  border: 0.5px solid var(--border-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-dim);
+  margin-top: 1px;
+  transition: all 0.2s;
+  font-family: 'Cormorant Garamond', serif;
+}
+.opt-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+.opt.sel .opt-text { color: var(--text); }
+
+.warn-msg {
+  display: none;
+  font-size: 12px;
+  color: #e07060;
+  margin-top: 12px;
+  padding-left: 4px;
+}
+
+/* ── NAV ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.nav-hint {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+.btn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  border: 0.5px solid var(--border-mid);
+  background: transparent;
+  color: var(--text-muted);
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.3px;
+}
+.btn:hover:not(:disabled) { background: rgba(255,255,255,0.04); color: var(--text); }
+.btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.btn-gold {
+  background: var(--gold);
+  color: var(--dark);
+  border-color: var(--gold);
+  font-weight: 500;
+}
+.btn-gold:hover:not(:disabled) { background: var(--gold-light); border-color: var(--gold-light); }
+
+/* ── INFO SCREEN ── */
+.screen {
+  display: none;
+  animation: fadeUp 0.4s ease;
+}
+
+.info-card {
+  background: var(--dark2);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 20px;
+  padding: 40px;
+}
+.info-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.info-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+.field {
+  margin-bottom: 18px;
+}
+.field label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+.field input {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--dark3);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 10px;
+  font-size: 15px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.field input::placeholder { color: var(--text-dim); }
+.field input:focus { border-color: var(--gold-border); }
+
+.send-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.3px;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+.send-btn:hover { background: var(--gold-light); }
+.send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.send-status {
+  font-size: 13px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 14px;
+  min-height: 20px;
+  font-weight: 300;
+}
+.send-status.err { color: #e07060; }
+
+/* ── RESULT SCREEN ── */
+.result-hero {
+  background: var(--dark2);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 20px;
+  padding: 48px 40px 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.result-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+}
+
+.score-circle {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 24px;
+  position: relative;
+}
+.score-circle svg { transform: rotate(-90deg); }
+.score-num {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--gold-light);
+}
+
+.res-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.res-sub {
+  font-size: 14px;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+.result-body {
+  background: var(--dark2);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 20px;
+  padding: 36px 40px;
+  margin-bottom: 16px;
+}
+
+.res-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.res-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 3vw, 20px);
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+
+.breakdown-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.br-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.br-cat {
+  font-size: 12px;
+  color: var(--text-dim);
+  width: 74px;
+  flex-shrink: 0;
+  font-weight: 300;
+}
+.br-track {
+  flex: 1;
+  height: 3px;
+  background: var(--border-mid);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.br-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 2px;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.br-score {
+  font-size: 12px;
+  color: var(--text-dim);
+  min-width: 32px;
+  text-align: right;
+  font-weight: 300;
+}
+
+.cta-wrap {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 0.5px solid var(--border);
+}
+
+.cta-green {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.3px;
+  transition: all 0.2s;
+  margin-bottom: 12px;
+}
+.cta-green:hover { background: #168a63; }
+.cta-note {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: center;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.farewell-wrap {
+  background: var(--dark2);
+  border: 0.5px solid var(--border-mid);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+}
+.farewell-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 3.5vw, 23px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin: 24px 0;
+}
+.farewell-line {
+  width: 48px;
+  height: 0.5px;
+  background: var(--gold-border);
+  margin: 0 auto 24px;
+}
+.farewell-note {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding-top: 48px;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 480px) {
+  .qcard, .info-card, .result-hero, .result-body, .farewell-wrap { padding: 28px 22px; }
+  .hero { padding: 52px 0 40px; }
+  .hero-meta { gap: 20px; }
+  .btn { padding: 11px 20px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero" id="hero-section">
+    <div class="hero-eyebrow">Vizyon Testi</div>
+    <h1>Ben Ne Kadar<br><em>Vizyonerim?</em></h1>
+    <p class="hero-sub">Sisteme değil, kendinize ayna tutun.</p>
+    <div class="hero-meta">
+      <div class="hm-item"><span class="hm-val">15</span><span class="hm-lbl">Soru</span></div>
+      <div class="hm-item"><span class="hm-val">8dk</span><span class="hm-lbl">Süre</span></div>
+      <div class="hm-item"><span class="hm-val">5</span><span class="hm-lbl">Boyut</span></div>
+    </div>
+    <div class="hero-divider"></div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="prog-wrap" id="prog-wrap" style="display:none">
+    <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    <span class="prog-txt" id="prog-txt">0 / 15</span>
+  </div>
+
+  <!-- QUESTION AREA -->
+  <div id="q-area"></div>
+
+  <!-- INFO SCREEN -->
+  <div class="screen" id="info-screen">
+    <div class="info-card">
+      <h2>Son bir adım kaldı</h2>
+      <p>Sonuçlarınız ekibimiz tarafından değerlendirilecek ve size dönüş yapılacak. Bilgilerinizi doğru girdiğinizden emin olun.</p>
+      <div class="field">
+        <label>Ad Soyad</label>
+        <input type="text" id="f-name" placeholder="Adınız ve soyadınız" autocomplete="name">
+      </div>
+      <div class="field">
+        <label>E-posta Adresi</label>
+        <input type="email" id="f-email" placeholder="ornek@mail.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label>Telefon <span style="opacity:.4;font-size:10px;text-transform:none;letter-spacing:0">(opsiyonel)</span></label>
+        <input type="tel" id="f-phone" placeholder="+90 5xx xxx xx xx" autocomplete="tel">
+      </div>
+      <button class="send-btn" id="send-btn" onclick="submitResult()">Değerlendirmeye Gönder</button>
+      <div class="send-status" id="send-status"></div>
+    </div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div class="screen" id="res-screen">
+    <div class="result-hero">
+      <div class="score-circle">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6"/>
+          <circle id="sarc" cx="50" cy="50" r="42" fill="none" stroke="#C9A227"
+            stroke-width="6" stroke-linecap="round"
+            stroke-dasharray="264" stroke-dashoffset="264"
+            style="transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)"/>
+        </svg>
+        <div class="score-num" id="snum">—</div>
+      </div>
+      <div class="res-title" id="res-title"></div>
+      <div class="res-sub" id="res-sub"></div>
+    </div>
+
+    <div class="result-body" id="res-body-qualified">
+      <div id="rlabel-wrap"></div>
+      <div class="res-desc" id="res-desc"></div>
+      <div class="breakdown-title">Kategori Analizi</div>
+      <div id="br-rows"></div>
+      <div class="cta-wrap" id="cta-wrap"></div>
+    </div>
+
+    <div class="farewell-wrap" id="res-body-farewell" style="display:none">
+      <div id="fw-label-wrap"></div>
+      <div class="farewell-line"></div>
+      <div class="farewell-quote">"Gayretin için teşekkürler. Fakat henüz girişimcilik için yeterli vizyona ve cesarete sahip değilsin. Kendini hazır hissettiğinde bu testi yeni bakış açınla yeniden yap, aramıza katıl ve hayatını kendin dizayn et. Görüşmek üzere."</div>
+      <div class="farewell-line"></div>
+      <div class="farewell-note" id="fw-note"></div>
+    </div>
+  </div>
+
+  <div class="footer">© Beyond the Labyrinth — Tüm hakları saklıdır.</div>
+
+</div>
+
+<script>
+const WHATSAPP = 'https://chat.whatsapp.com/DaTRZ6EhnHY5q66kO6QYr9';
+const OWNER_EMAIL = 'fatih@esendemir.com.tr';
+const THRESHOLD = 73;
+const SERMAYE_MIN = 12; // S8+S10+S14 toplamı min 12/15 olmalı
+
+const questions = [
+  {id:1,cat:'zaman',catL:'Zaman',badge:'b-zaman',txt:'Dürüstçe hesaplayın: bu hafta başkasının hedefleri için kaç saat çalıştınız?',sub:'İş yerinizde geçirdiğiniz süreyi düşünün — toplantılar, mesailer, anlık talepler...',opts:[{t:'40 saatten fazla. Çoğu hafta böyle geçiyor.',s:5},{t:'30–40 saat arası. Makul buluyorum aslında.',s:3},{t:'20–30 saat, ama bunu hiç düşünmemiştim.',s:2},{t:'Serbest çalışıyorum zaten, bu beni etkilemiyor.',s:4}]},
+  {id:2,cat:'para',catL:'Finansal',badge:'b-para',txt:'Son beş yılda maaşınız, gerçek hayat pahalılığıyla yarıştı mı?',sub:'TL\'nin erimesi, kira artışları, sepet enflasyonu... Bunları hesaba katarak düşünün.',opts:[{t:'Hayır. Sayılara bakınca satın alma gücüm düştü.',s:5},{t:'Neredeyse. Ama bir türlü ileri gidemiyorum.',s:4},{t:'Zamlar oldu, yeterli mi tam bilmiyorum.',s:2},{t:'İyi bir maaş alıyorum, sorun görmüyorum.',s:1}]},
+  {id:3,cat:'psiko',catL:'Psikoloji',badge:'b-psiko',txt:'Pazartesi sabahı uyandığınızda içinizde gerçekte ne hissediyorsunuz?',sub:null,opts:[{t:'Derin bir ağırlık. "Yine mi?" diye geçiyor içimden.',s:5},{t:'Nötr. Ne heyecan ne nefret — sadece rutin.',s:4},{t:'Bazen sıkılıyorum ama genel olarak iyiyim.',s:2},{t:'İşimi seviyorum, gerçekten sorun yok.',s:1}]},
+  {id:4,cat:'zaman',catL:'Zaman',badge:'b-zaman',txt:'Hayatınızda "bunu bir gün yapacağım" dediğiniz kaç ertelenmiş hayaliniz var?',sub:null,opts:[{t:'Birden fazla. Zamanım olunca, emekli olunca...',s:5},{t:'Var ama gerçekçi olmadıklarını düşünüyorum.',s:4},{t:'Bir iki tane var, ama önce istikrar şart.',s:3},{t:'Şimdiki hayatımdan gerçekten memnunum.',s:1}]},
+  {id:5,cat:'psiko',catL:'Psikoloji',badge:'b-psiko',txt:'Çevrenizde ortalamanın çok üstünde kazanan birini gördüğünüzde ilk tepkiniz ne olur?',sub:null,opts:[{t:'"Ben de yapabilirim." Ve bunu gerçekten düşünüyorum.',s:5},{t:'"Şansı varmış ya da birisi kapıyı açmış."',s:1},{t:'"İyi ona, ama benim şartlarım farklı."',s:1},{t:'Sessizce inceliyor, ne yaptığını anlamaya çalışıyorum.',s:5}]},
+  {id:6,cat:'para',catL:'Finansal',badge:'b-para',txt:'Ayın sonunda elinizde kalan para için ne söylersiniz?',sub:null,opts:[{t:'Hangi ay? Çoğunlukla sıfırı görüyorum.',s:5},{t:'Biraz kalıyor ama "yatırım" diyemem buna.',s:4},{t:'Birikim yapabiliyorum ama yavaş ilerliyor.',s:3},{t:'Yeterince biriktiriyorum, sistemi değiştirmeme gerek yok.',s:1}]},
+  {id:7,cat:'cesaret',catL:'Cesaret',badge:'b-cesaret',txt:'Hayatınızda kontrolünüzün dışında olan kaç önemli şey var?',sub:'Maaş artışı, terfi, çalışma saatleri, projelerin içeriği, işin geleceği...',opts:[{t:'Çoğu şey. Aslında gerçek kararlarım çok az.',s:5},{t:'Bazıları. Ama bu normal, herkes böyle yaşıyor.',s:3},{t:'Var, ama şikayet etmiyorum — her işin kuralları var.',s:2},{t:'Kendimi zaten özgür hissediyorum.',s:1}]},
+  {id:8,cat:'sermaye',catL:'Sermaye',badge:'b-sermaye',txt:'30.000 TL ile doğru bir iş modeline yatırım yapmayı düşünseydiniz, ilk duygunuz ne olurdu?',sub:'Parayı bulmaktan değil — onu yatırıma çevirmekten söz ediyoruz.',opts:[{t:'Heyecan. Doğru sistemi bulsam hemen değerlendiririm.',s:5},{t:'Temkinli. Önce detayları iyice öğrenmek isterdim.',s:4},{t:'Kaygılı. Kayıp riski beni durdurur.',s:2},{t:'İlgilenmezdim. Para bu tür riske giremez.',s:1}]},
+  {id:9,cat:'psiko',catL:'Psikoloji',badge:'b-psiko',txt:'Şu an yaşadığınız hayat, 10 yıl önce hayal ettiğiniz hayat mı?',sub:null,opts:[{t:'Hayır. O hayal çok farklıydı, çok daha büyüktü.',s:5},{t:'Kısmen. Bazı şeyler tuttu, bazıları hiç olmadı.',s:4},{t:'Tam değil ama yakın, yavaş da olsa ilerliyor.',s:2},{t:'Evet. İstediğim hayatı yaşıyorum.',s:1}]},
+  {id:10,cat:'sermaye',catL:'Sermaye',badge:'b-sermaye',txt:'50.000 TL\'yi 3 yılda 5 katına çıkarabilecek bir sisteme kavuşsanız, bu parayı bugün bulabilir miydiniz?',sub:'Birikim, kredi, aile desteği — her yolu düşünerek cevap verin.',opts:[{t:'Evet. Bir şekilde organize edebilirdim.',s:5},{t:'Belki. 3–6 ay içinde toplayabilirdim.',s:4},{t:'Zor, ama imkânsız da değil.',s:3},{t:'Hayır. Şu an bu esnekliğim yok.',s:1}]},
+  {id:11,cat:'zaman',catL:'Zaman',badge:'b-zaman',txt:'Akşamları işten sonra kendinize ait kaç saatiniz kalıyor?',sub:null,opts:[{t:'Çok az. Eve gelince zaten enerji kalmıyor.',s:5},{t:'Biraz var ama verimli kullanamıyorum.',s:4},{t:'Yeterince var, hobilerimi yapabiliyorum.',s:2},{t:'Zamanım bol, bu benim için sorun değil.',s:1}]},
+  {id:12,cat:'cesaret',catL:'Cesaret',badge:'b-cesaret',txt:'Önümüzdeki 3 ayda maaşınız kesilse, yerine geçecek alternatif bir geliriniz var mıydı?',sub:null,opts:[{t:'Hayır. Bu soruyu okumak bile tedirgin etti beni.',s:5},{t:'Çok az. 1–2 ay idare ederim, sonrası karanlık.',s:4},{t:'Birikimim var, bir süre idare ederim.',s:3},{t:'Evet. Pasif gelir kanallarım mevcut.',s:1}]},
+  {id:13,cat:'cesaret',catL:'Cesaret',badge:'b-cesaret',txt:'Konfor alanınızdan çıkmayı gerektiren bir fırsatla karşılaştığınızda ne yaparsınız?',sub:null,opts:[{t:'Heyecanlanırım ve hemen araştırmaya başlarım.',s:5},{t:'İlgi duyarım ama "zamanı gelince" derim.',s:3},{t:'Temkinli yaklaşırım, önce başkalarına sorarım.',s:2},{t:'İstikrar benim için en değerli şey.',s:1}]},
+  {id:14,cat:'sermaye',catL:'Sermaye',badge:'b-sermaye',txt:'Hangi başlangıç modeli size en yakın geliyor?',sub:'Bu rakamlar bir ön eleme kriteri — dürüstçe işaretleyin.',opts:[{t:'50.000 TL ve üzeri — En hızlı başlamak istiyorum.',s:5},{t:'40.000 TL — Hızlı ama ölçülü; orta tempo.',s:4},{t:'30.000 TL — Temkinli başlayıp adım adım büyüteyim.',s:3},{t:'Bu rakamlar şu an için çok yüksek.',s:1}]},
+  {id:15,cat:'psiko',catL:'Psikoloji',badge:'b-psiko',txt:'Bu soruları yanıtlarken içinizde ne hissettiniz?',sub:'Dürüstçe.',opts:[{t:'Rahatsız oldum. Bazı gerçekleri görmezden geliyordum.',s:5},{t:'Düşündürücüydü. Bazı sorular gerçekten isabet etti.',s:4},{t:'Nötr. Bunların zaten farkındaydım.',s:3},{t:'Hiçbir şey hissetmedim, beni pek etkilemedi.',s:1}]}
+];
+
+const catNames = {zaman:'Zaman',para:'Finansal',psiko:'Psikoloji',cesaret:'Cesaret',sermaye:'Sermaye'};
+let cur = 0, ans = {}, started = false;
+
+function startTest() {
+  started = true;
+  document.getElementById('prog-wrap').style.display = 'flex';
+  render();
+}
+
+function updateProgress() {
+  const done = Object.keys(ans).length;
+  const pct = Math.round((done / questions.length) * 100);
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('prog-txt').textContent = done + ' / ' + questions.length;
+}
+
+function render() {
+  updateProgress();
+  if (cur >= questions.length) { showInfo(); return; }
+  const q = questions[cur];
+  const sel = ans[q.id];
+
+  document.getElementById('q-area').innerHTML = `
+    <div class="qcard">
+      <div class="qcard-top">
+        <span class="q-num">Soru ${cur + 1} / ${questions.length}</span>
+        <span class="q-badge ${q.badge}">${q.catL}</span>
+      </div>
+      <div class="q-txt">${q.txt}</div>
+      ${q.sub ? `<div class="q-sub">${q.sub}</div>` : `<div class="q-nosub"></div>`}
+      <div class="opts">${q.opts.map((o,i) => `
+        <button class="opt ${sel === i ? 'sel' : ''}" onclick="pick(${i})">
+          <span class="opt-letter">${String.fromCharCode(65+i)}</span>
+          <span class="opt-text">${o.t}</span>
+        </button>`).join('')}
+      </div>
+      <div class="warn-msg" id="warn">Lütfen bir seçenek işaretleyin.</div>
+    </div>
+    <div class="nav">
+      <button class="btn" onclick="go(-1)" ${cur === 0 ? 'disabled' : ''}>← Geri</button>
+      <span class="nav-hint">${Object.keys(ans).length} tamamlandı</span>
+      <button class="btn btn-gold" onclick="go(1)">${cur === questions.length - 1 ? 'Devam Et' : 'İleri →'}</button>
+    </div>`;
+
+}
+
+function pick(i) { ans[questions[cur].id] = i; render(); }
+
+function go(d) {
+  if (d === 1 && ans[questions[cur].id] === undefined) {
+    const w = document.getElementById('warn');
+    if (w) w.style.display = 'block';
+    return;
+  }
+  cur = Math.max(0, Math.min(questions.length, cur + d));
+  render();
+}
+
+function calcScores() {
+  let total = 0;
+  let catS = {zaman:0,para:0,psiko:0,cesaret:0,sermaye:0};
+  let catM = {zaman:0,para:0,psiko:0,cesaret:0,sermaye:0};
+  const sermayeIds = [8, 10, 14]; // S8, S10, S14 — kritik sermaye soruları
+  let sermayeScore = 0;
+  questions.forEach(q => {
+    const mx = Math.max(...q.opts.map(o => o.s));
+    catM[q.cat] += mx;
+    if (ans[q.id] !== undefined) {
+      const sc = q.opts[ans[q.id]].s;
+      total += sc;
+      catS[q.cat] += sc;
+      if (sermayeIds.includes(q.id)) sermayeScore += sc;
+    }
+  });
+  const maxT = questions.reduce((s,q) => s + Math.max(...q.opts.map(o => o.s)), 0);
+  return { pct: Math.round((total / maxT) * 100), catS, catM, sermayeScore };
+}
+
+function buildAnswerText() {
+  return questions.map((q,i) => {
+    const sel = ans[q.id];
+    const chosen = sel !== undefined ? q.opts[sel].t : '(Yanıtlanmadı)';
+    const score = sel !== undefined ? q.opts[sel].s : 0;
+    return `S${i+1} [${q.catL}]: ${q.txt}\n   → ${chosen} (${score} puan)`;
+  }).join('\n\n');
+}
+
+function showInfo() {
+  document.getElementById('q-area').style.display = 'none';
+  showSendingScreen();
+}
+
+function showSendingScreen() {
+  const infoScr = document.getElementById('info-screen');
+  infoScr.style.display = 'block';
+  infoScr.innerHTML = `
+    <div class="info-card" style="text-align:center;padding:56px 40px">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--text);margin-bottom:12px;font-weight:300">Sonuçlarınız değerlendiriliyor...</div>
+      <div style="font-size:13px;color:var(--text-dim);font-weight:300;margin-bottom:32px">Lütfen bekleyin, bu birkaç saniye sürebilir.</div>
+      <div style="display:flex;justify-content:center;gap:8px">
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--gold);animation:pulse 1.2s ease infinite"></span>
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--gold);animation:pulse 1.2s ease 0.4s infinite"></span>
+        <span style="width:9px;height:9px;border-radius:50%;background:var(--gold);animation:pulse 1.2s ease 0.8s infinite"></span>
+      </div>
+      <style>@keyframes pulse{0%,100%{opacity:.2}50%{opacity:1}}</style>
+    </div>`;
+  submitResult();
+}
+
+async function submitResult() {
+  const name  = userData.name;
+  const email = userData.email;
+  const phone = userData.phone;
+
+  const { pct, catS, catM, sermayeScore } = calcScores();
+  const qualified = pct >= THRESHOLD && sermayeScore >= SERMAYE_MIN;
+
+  const catBreakdown = Object.keys(catNames).map(c => {
+    const p = catM[c] > 0 ? Math.round((catS[c] / catM[c]) * 100) : 0;
+    return `  ${catNames[c]}: %${p}`;
+  }).join('\n');
+
+  const now = new Date().toLocaleString('tr-TR');
+  const sermayeStr = `${sermayeScore}/15`;
+  const sermayeNote = sermayeScore >= SERMAYE_MIN ? '✓ Geçti' : '✗ Yetersiz (min 12/15)';
+  const status = qualified ? '✅ UYGUN — WhatsApp grubuna yönlendirildi' : `❌ ELENDİ — Genel: %${pct} | Sermaye: ${sermayeStr} ${sermayeNote}`;
+
+  const mailBody = `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YENİ ADAY DEĞERLENDİRMESİ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ad Soyad  : ${name}
+E-posta   : ${email}
+Telefon   : ${phone || 'Belirtilmedi'}
+Tarih     : ${now}
+
+SONUÇ
+─────────────────────────────────
+Genel Puan: %${pct}
+Durum     : ${status}
+
+KATEGORİ ANALİZİ
+─────────────────────────────────
+${catBreakdown}
+
+DETAYLI CEVAPLAR
+─────────────────────────────────
+${buildAnswerText()}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+
+  try {
+    await fetch('https://formspree.io/f/xkoyngwg', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: `Yeni Aday | ${name} | %${pct} | ${qualified ? 'UYGUN' : 'ELENDİ'}`,
+        ad_soyad: name,
+        email: email,
+        telefon: phone || 'Belirtilmedi',
+        tarih: now,
+        genel_puan: `%${pct}`,
+        durum: status,
+        sermaye_skoru: `${sermayeScore}/15`,
+        kategori_analizi: Object.keys(catNames).map(c => {
+          const p = catM[c] > 0 ? Math.round((catS[c] / catM[c]) * 100) : 0;
+          return `${catNames[c]}: %${p}`;
+        }).join(' | '),
+        detayli_cevaplar: buildAnswerText()
+      })
+    });
+  } catch(e) { /* sessizce geç */ } finally {
+    showResult(pct, catS, catM, name, qualified);
+  }
+}
+
+function showResult(pct, catS, catM, name, qualified) {
+  document.getElementById('info-screen').style.display = 'none';
+  document.getElementById('q-area').style.display = 'none';
+  const rs = document.getElementById('res-screen');
+  rs.style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const circ = 2 * Math.PI * 42;
+  const offset = circ - (circ * pct / 100);
+  setTimeout(() => {
+    document.getElementById('sarc').style.strokeDashoffset = offset;
+  }, 200);
+  document.getElementById('snum').textContent = pct + '%';
+
+  if (qualified) {
+    let title, sub, labelTxt, labelStyle, desc;
+    if (pct >= 80) {
+      title = 'Yeni Nesil Girişimciye Hazır';
+      sub = 'Ekibimiz sizinle iletişime geçecek.';
+      labelTxt = 'Girişimciliğe Hazır';
+      labelStyle = 'background:rgba(29,158,117,.15);color:#1D9E75;border:.5px solid rgba(29,158,117,.3)';
+      desc = `${name}, bu testi tamamlayanların çok azı buraya geliyor. Sizi donduran şeyin korku değil, doğru sistemin yokluğu olduğunu gördük. Ekibimiz sizinle iletişime geçecek — aşağıdaki bağlantı üzerinden gruba katılın.`;
+    } else {
+      title = 'Uyandırma Sürecinde';
+      sub = 'Farkındalık var — şimdi karar zamanı.';
+      labelTxt = 'Potansiyel Görülüyor';
+      labelStyle = 'background:rgba(201,162,39,.15);color:#C9A227;border:.5px solid rgba(201,162,39,.3)';
+      desc = `${name}, içinizde bir şeylerin değişmesi gerektiğini biliyorsunuz. Sistemi öğrenin, sorularınızı sorun ve bu kez kararınızı kendiniz verin. Gruba bekleniyorsunuz.`;
+    }
+    document.getElementById('res-title').textContent = title;
+    document.getElementById('res-sub').textContent = sub;
+    document.getElementById('rlabel-wrap').innerHTML = `<span class="res-label" style="${labelStyle}">${labelTxt}</span>`;
+    document.getElementById('res-desc').textContent = desc;
+
+    const cats = ['zaman','para','psiko','cesaret','sermaye'];
+    document.getElementById('br-rows').innerHTML = cats.map(c => {
+      const p = catM[c] > 0 ? Math.round((catS[c] / catM[c]) * 100) : 0;
+      return `<div class="br-row">
+        <span class="br-cat">${catNames[c]}</span>
+        <div class="br-track"><div class="br-fill" style="width:0%" data-target="${p}"></div></div>
+        <span class="br-score">${p}%</span>
+      </div>`;
+    }).join('');
+    setTimeout(() => {
+      document.querySelectorAll('.br-fill').forEach(el => {
+        el.style.width = el.dataset.target + '%';
+      });
+    }, 300);
+
+    document.getElementById('cta-wrap').innerHTML = `
+      <a class="cta-green" href="${WHATSAPP}" target="_blank" rel="noopener">WhatsApp Grubuna Katıl — Sistemi Öğren</a>
+      <div class="cta-note">Gruba katıldığınızda detaylı yol haritanız ve başlangıç bilgileri paylaşılacak.</div>`;
+    document.getElementById('res-body-qualified').style.display = 'block';
+    document.getElementById('res-body-farewell').style.display = 'none';
+  } else {
+    document.getElementById('res-title').textContent = 'Değerlendirme Tamamlandı';
+    document.getElementById('res-sub').textContent = 'Sonucunuz ekibimize iletildi.';
+    document.getElementById('res-body-qualified').style.display = 'none';
+    const fw = document.getElementById('res-body-farewell');
+    fw.style.display = 'block';
+    document.getElementById('fw-label-wrap').innerHTML = `<span class="res-label" style="background:rgba(192,57,43,.12);color:#C0392B;border:.5px solid rgba(192,57,43,.25)">Henüz Hazır Değil</span>`;
+    document.getElementById('fw-note').textContent = 'Bu test kayıtlarınız muhafaza edilmektedir. Kendinizi hazır hissettiğiniz gün, yeni bakış açınızla tekrar başvurabilirsiniz.';
+  }
+}
+
+// Kullanıcı verisi — başta toplanır
+let userData = { name: '', email: '', phone: '' };
+
+function showRegisterScreen() {
+  document.getElementById('q-area').innerHTML = `
+    <div class="qcard" style="text-align:center;padding:52px 36px 40px">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px;font-weight:300">Başlamadan önce</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--text);line-height:1.55;margin-bottom:14px;font-weight:300">Bu test size doğru ya da yanlış söylemez.<br>Nerede durduğunuzu söyler.</div>
+      <div style="font-size:13px;color:var(--text-dim);line-height:1.8;margin-bottom:40px;font-weight:300;max-width:420px;margin-left:auto;margin-right:auto">15 soru · 5 boyut · yaklaşık 8 dakika<br>Dürüst cevaplar için tasarlandı — sistemi kandırmanın kazananı olmaz.</div>
+
+      <div style="text-align:left;max-width:420px;margin:0 auto 28px">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:20px;font-weight:400;text-align:center">Bilgilerinizi girin, testi başlatın</div>
+
+        <div style="margin-bottom:14px">
+          <label style="display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-bottom:7px;font-weight:400">Ad Soyad <span style="color:#e07060">*</span></label>
+          <input id="r-name" type="text" placeholder="Adınız ve soyadınız" autocomplete="name"
+            style="width:100%;padding:13px 16px;background:var(--dark3);border:0.5px solid var(--border-mid);border-radius:10px;font-size:15px;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;outline:none;transition:border-color 0.2s"
+            onfocus="this.style.borderColor='rgba(201,162,39,0.5)'"
+            onblur="this.style.borderColor='var(--border-mid)'">
+        </div>
+
+        <div style="margin-bottom:14px">
+          <label style="display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-bottom:7px;font-weight:400">E-posta Adresi <span style="color:#e07060">*</span></label>
+          <input id="r-email" type="email" placeholder="ornek@mail.com" autocomplete="email"
+            style="width:100%;padding:13px 16px;background:var(--dark3);border:0.5px solid var(--border-mid);border-radius:10px;font-size:15px;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;outline:none;transition:border-color 0.2s"
+            onfocus="this.style.borderColor='rgba(201,162,39,0.5)'"
+            onblur="this.style.borderColor='var(--border-mid)'">
+        </div>
+
+        <div style="margin-bottom:8px">
+          <label style="display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-bottom:7px;font-weight:400">Telefon <span style="opacity:.35;font-size:10px;text-transform:none;letter-spacing:0">(opsiyonel)</span></label>
+          <input id="r-phone" type="tel" placeholder="+90 5xx xxx xx xx" autocomplete="tel"
+            style="width:100%;padding:13px 16px;background:var(--dark3);border:0.5px solid var(--border-mid);border-radius:10px;font-size:15px;color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;outline:none;transition:border-color 0.2s"
+            onfocus="this.style.borderColor='rgba(201,162,39,0.5)'"
+            onblur="this.style.borderColor='var(--border-mid)'">
+        </div>
+      </div>
+
+      <div id="reg-warn" style="display:none;font-size:12px;color:#e07060;margin-bottom:14px;text-align:center">Ad soyad ve e-posta zorunludur.</div>
+
+      <button class="btn btn-gold" style="padding:14px 48px;font-size:15px" onclick="registerAndStart()">Testi Başlat →</button>
+
+      <div style="margin-top:20px;font-size:11px;color:var(--text-dim);font-weight:300;line-height:1.7">
+        Bilgileriniz yalnızca değerlendirme amacıyla kullanılır<br>ve üçüncü taraflarla paylaşılmaz.
+      </div>
+    </div>`;
+}
+
+function registerAndStart() {
+  const name  = document.getElementById('r-name').value.trim();
+  const email = document.getElementById('r-email').value.trim();
+  const phone = document.getElementById('r-phone').value.trim();
+
+  if (!name || !email) {
+    document.getElementById('reg-warn').style.display = 'block';
+    return;
+  }
+
+  userData = { name, email, phone };
+
+  // Kayıt maili gönder (arka planda, test başlarken)
+  sendRegistrationMail(name, email, phone);
+
+  startTest();
+}
+
+async function sendRegistrationMail(name, email, phone) {
+  const now = new Date().toLocaleString('tr-TR');
+  try {
+    await fetch('https://formspree.io/f/xkoyngwg', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: `Yeni Kayıt | ${name} | Test Başlatıldı`,
+        ad_soyad: name,
+        email: email,
+        telefon: phone || 'Belirtilmedi',
+        tarih: now,
+        durum: 'Test başlatıldı — sonuç bekleniyor'
+      })
+    });
+  } catch(e) { /* sessizce geç */ }
+}
+
+showRegisterScreen();
+</script>
+</body>
+</html>
